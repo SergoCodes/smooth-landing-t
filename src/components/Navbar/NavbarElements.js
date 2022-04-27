@@ -6,6 +6,7 @@ export const Nav = styled.nav`
   position: sticky;
   top: 0;
   z-index: 10;
+  margin-top: -80px;
   
   display: flex;
   justify-content: center;
