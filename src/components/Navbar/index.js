@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   MobileIcon,
   Nav,
@@ -11,11 +11,24 @@ import {
   NavMenu
 } from './NavbarElements'
 import {FaBars} from 'react-icons/fa'
+import {animateScroll} from 'react-scroll'
 
 const Navbar = ({toggle}) => {
+  const [scrollNav, setScrollNav] = useState(false)
+  
+  const changeNav = () => setScrollNav(window.scrollY >= 80)
+  
+  useEffect(() => {
+    window.addEventListener('scroll', changeNav)
+  }, [])
+  
+  const toggleHome = () => {
+    animateScroll.scrollToTop()
+  }
+  
   return (
     <>
-      <Nav>
+      <Nav scrollNav={scrollNav} onClick={toggleHome}>
         <NavbarContainer>
           <NavLogo to='/'>
             dolla
@@ -24,17 +37,43 @@ const Navbar = ({toggle}) => {
             <FaBars/>
           </MobileIcon>
           <NavMenu>
-            <NavItem >
-              <NavLink className='active' to='about'>About</NavLink>
+            <NavItem>
+              <NavLink
+                to='about'
+                smooth={true}
+                duration={500}
+                spy={true}
+                exact='true'
+                offset={-80}
+              >About</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink to='discover'>Discover</NavLink>
+              <NavLink
+                to='discover'
+                smooth={true}
+                duration={500}
+                spy={true}
+                exact='true'
+                offset={-80}
+              >Discover</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink to='services'>Services</NavLink>
+              <NavLink
+                to='services'
+                smooth={true}
+                duration={500}
+                spy={true}
+                exact='true'
+                offset={-80}>Services</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink to='signup'>Sign Up</NavLink>
+              <NavLink
+                to='signup'
+                smooth={true}
+                duration={500}
+                spy={true}
+                exact='true'
+                offset={-80}>Sign Up</NavLink>
             </NavItem>
           </NavMenu>
           <NavBtn>

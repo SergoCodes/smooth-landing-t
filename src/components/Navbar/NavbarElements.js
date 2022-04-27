@@ -6,14 +6,14 @@ export const Nav = styled.nav`
   position: sticky;
   top: 0;
   z-index: 10;
-  margin-top: -80px;
+  margin-top: -79px;
   
   display: flex;
   justify-content: center;
   
   height: 80px;
   
-  background: black;
+  background: ${({scrollNav}) => !scrollNav ? 'transparent' : '#000'};
   font-size: 1rem;
   
   @media screen and (max-width: 960px) {
@@ -91,7 +91,8 @@ export const NavLink = styled(LinkS)`
   cursor: pointer;
   
   &.active {
-    border-bottom: 3px solid #01bf71;
+    //border: 3px inset solid #01bf71;
+    box-shadow: 0px -3px 0px #01bf71 inset;
   }
 `
 
