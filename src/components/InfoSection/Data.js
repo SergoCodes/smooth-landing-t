@@ -21,7 +21,7 @@ export const homeData = {
 }
 
 export const aboutData = {
-  id: 'about',
+  id: 'discover',
   lightBg: true,
   lightText: false,
   lightTextDesc: false,
